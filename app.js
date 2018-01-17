@@ -43,7 +43,7 @@ https.get('https://api.coindesk.com/v1/bpi/currentprice.json', (resp) => {
         console.log('CANNOT CREATE TWEET... Error');
       }
       else{
-        console.log('TWEETED... Success!!!');
+        console.log('PRICE TWEETED... Success!!!');
       }
 
     });
