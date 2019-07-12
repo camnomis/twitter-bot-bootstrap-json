@@ -2,7 +2,7 @@
   "name": "twitter-bot-bootstrap-json",
   "author": "Simon McCartney <simon@camnomis.com>",
   "url": "https://github.com/camnomis",
-  "description": "A tweaked automated bot for various twitter functions including parsing json feed and retweeting",
+  "description": "A slightly tweaked automated bot for various twitter functions including parsing json feed and retweeting",
   "scripts": {
     "start": "node app.js"
   },
