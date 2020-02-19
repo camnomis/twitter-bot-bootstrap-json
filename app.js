@@ -31,7 +31,7 @@ https.get('https://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zh
 //    var Image = response_object.lovedtracks.track[0].image[1]['#text'];
 //    var URL = response_object.lovedtracks.track[0].url;
 
-    Twitter.post('statuses/update', { status: 'New loved track'+Artist+' '+Track+' '+URL'}, function(err, data, response) {
+    Twitter.post('statuses/update', { status: 'New loved track'+Artist }, function(err, data, response) {
       if(err){
         console.log(data);
       }
