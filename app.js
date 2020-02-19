@@ -28,7 +28,7 @@ https.get('http://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zha
     var response_object = JSON.parse(data);
     var Artist = response_object.track.artist.name;
     var Track = response_object.track.name;
-    var Image = response_object.track.image.small.#text;
+    var Image = response_object.track.image.small.text;
     var URL = response_object.track.url;
 
     Twitter.post('statuses/update', { status: 'New loved track'+Artist+' '+Track }, function(err, data, response) {
