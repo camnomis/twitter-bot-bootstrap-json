@@ -33,7 +33,7 @@ https.get('https://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zh
 
     Twitter.post('statuses/update', { status: 'New loved track'}, function(err, data, response) {
       if(err){
-        console.log('CANNOT CREATE TWEET... Error');
+        console.log(data);
       }
       else{
         console.log('TRACK TWEETED... Success!!!');
