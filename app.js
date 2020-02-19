@@ -26,7 +26,7 @@ https.get('https://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zh
   resp.on('end', () => {
     // *** This stuff has been moved inside this callback function, so it can "see" the data ***
     var response_object = JSON.parse(data);
-    var Artist = response_object.track.artist.name;
+    var Artist = response_object.artist.name;
 //    var Track = response_object.name;
 //    var Image = response_object.image.small.text;
 //    var URL = response_object.url;
