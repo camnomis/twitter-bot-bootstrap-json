@@ -26,14 +26,14 @@ https.get('https://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zh
   resp.on('end', () => {
     // *** This stuff has been moved inside this callback function, so it can "see" the data ***
     var response_object = JSON.parse(data);
-//    var Artist = response_object.track.artist;
+    var Artist = response_object.track.artist;
 //    var Track = response_object.name;
 //    var Image = response_object.image.small.text;
 //    var URL = response_object.url;
 
-    Twitter.post('statuses/update', { status: 'New loved track'}, function(err, data, response) {
+    Twitter.post('statuses/update', { status: 'New loved track'+Artist}, function(err, data, response) {
       if(err){
-        console.log(data);
+        console.log('CANNOT CREATE TWEET... Error');
       }
       else{
         console.log('TRACK TWEETED... Success!!!');
@@ -48,5 +48,4 @@ https.get('https://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zh
 // grab & retweet as soon as program is running...
 tweetTrack();
 // retweet track every x milliseconds
-// setInterval(tweetTrack, 2576435);
-setInterval(tweetTrack, 60000);
+setInterval(tweetTrack, 2576435);
