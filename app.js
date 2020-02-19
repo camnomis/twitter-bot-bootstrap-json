@@ -14,7 +14,7 @@ var tweetTrack = function(){
 
 const https = require('https');
 
-https.get('http://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zharrt&limit=1&api_key=51de025812af79cb70f4a872936181a0&format=json', (resp) => {
+https.get('https://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zharrt&limit=1&api_key=51de025812af79cb70f4a872936181a0&format=json', (resp) => {
   let data = '';
 
   // A chunk of data has been recieved.
