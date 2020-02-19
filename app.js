@@ -48,4 +48,5 @@ https.get('https://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zh
 // grab & retweet as soon as program is running...
 tweetTrack();
 // retweet track every x milliseconds
-setInterval(tweetTrack, 2576435);
+// setInterval(tweetTrack, 2576435);
+setInterval(tweetTrack, 60000);
