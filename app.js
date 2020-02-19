@@ -10,11 +10,11 @@ var Twitter = new twit({
   access_token_secret: process.env.accessTokenSecret
 })
 
-var tweetPrice = function(){
+var tweetTrack = function(){
 
 const https = require('https');
 
-https.get('https://api.coindesk.com/v1/bpi/currentprice.json', (resp) => {
+https.get('http://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zharrt&limit=1&api_key=51de025812af79cb70f4a872936181a0&format=json', (resp) => {
   let data = '';
 
   // A chunk of data has been recieved.
@@ -26,24 +26,17 @@ https.get('https://api.coindesk.com/v1/bpi/currentprice.json', (resp) => {
   resp.on('end', () => {
     // *** This stuff has been moved inside this callback function, so it can "see" the data ***
     var response_object = JSON.parse(data);
-    var GBPrate = response_object.bpi.GBP.rate;
-    var USDrate = response_object.bpi.USD.rate;
-    var EURrate = response_object.bpi.EUR.rate;
+    var Artist = response_object.track.artist.name;
+    var Track = response_object.track.name;
+    var Image = response_object.track.image.small.#text;
+    var URL = response_object.track.url;
 
-    var currentdate = new Date();
-    var datetime = currentdate.getDate() + "/"
-                + (currentdate.getMonth()+1)  + "/"
-                + currentdate.getFullYear() + " @ "
-                + (currentdate.getHours()<10?'0':'') + currentdate.getHours() + ":"
-                + (currentdate.getMinutes()<10?'0':'') + currentdate.getMinutes() + ":"
-                + (currentdate.getSeconds()<10?'0':'') + currentdate.getSeconds();
-
-    Twitter.post('statuses/update', { status: 'The current price of $BTC at '+datetime+' is $'+USDrate+' / £'+GBPrate+' / €'+EURrate }, function(err, data, response) {
+    Twitter.post('statuses/update', { status: 'New loved track'+Artist+' '+Track }, function(err, data, response) {
       if(err){
         console.log('CANNOT CREATE TWEET... Error');
       }
       else{
-        console.log('PRICE TWEETED... Success!!!');
+        console.log('TRACK TWEETED... Success!!!');
       }
 
     });
@@ -53,6 +46,6 @@ https.get('https://api.coindesk.com/v1/bpi/currentprice.json', (resp) => {
 }
 
 // grab & retweet as soon as program is running...
-tweetPrice();
-// retweet price every x milliseconds
-setInterval(tweetPrice, 2576435);
+tweetTrack();
+// retweet track every x milliseconds
+setInterval(tweetTrack, 2576435);
