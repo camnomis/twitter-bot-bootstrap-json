@@ -27,11 +27,11 @@ https.get('https://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zh
     // *** This stuff has been moved inside this callback function, so it can "see" the data ***
     var response_object = JSON.parse(data);
     var Artist = response_object.lovedtracks.track[0].artist.name;
-//    var Track = response_object.lovedtracks.track[0].name;
+    var Lovedtrack = response_object.lovedtracks.track[0].name;
 //    var Image = response_object.lovedtracks.track[0].image[1]['#text'];
 //    var URL = response_object.lovedtracks.track[0].url;
 
-    Twitter.post('statuses/update', { status: 'New loved track'+Artist }, function(err, data, response) {
+    Twitter.post('statuses/update', { status: 'New loved track '+Artist+' - '+Lovedtrack }, function(err, data, response) {
       if(err){
         console.log(data);
       }
