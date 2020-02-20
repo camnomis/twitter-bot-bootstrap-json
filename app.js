@@ -36,7 +36,7 @@ https.get('https://ws.audioscrobbler.com/2.0/?method=user.getLovedTracks&user=zh
         console.log(data);
       }
       else{
-        console.log('TRACK TWEETED... Success!!!');
+        console.log('TRACK TWEETED... Success!!');
       }
 
     });
