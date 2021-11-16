@@ -10,7 +10,7 @@
     "node": "6.12.3"
   },
   "dependencies": {
-    "aws-sdk": "^2.179.0",
+    "aws-sdk": "^2.814.0",
     "https": "^1.0.0",
     "twit": "^2.2.9",
     "unique-random-array": "^1.0.0"
